@@ -1,9 +1,9 @@
-package otp.dao.impl;
+package dao.impl;
 
-import otp.config.DatabaseManager;
-import otp.dao.OtpCodeDao;
-import otp.model.OtpCode;
-import otp.model.OtpStatus;
+import config.DatabaseManager;
+import dao.OtpCodeDao;
+import model.OtpCode;
+import model.OtpStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

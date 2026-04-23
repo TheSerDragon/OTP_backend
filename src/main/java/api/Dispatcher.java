@@ -20,9 +20,9 @@ import model.UserRole;
  * </p>
  */
 public class Dispatcher {
-    private final otp.api.AuthController authController = new otp.api.AuthController();
+    private final api.AuthController authController = new api.AuthController();
     private final UserController userController = new UserController();
-    private final otp.api.AdminController adminController = new otp.api.AdminController();
+    private final api.AdminController adminController = new api.AdminController();
 
     /**
      * Регистрация всех маршрутов и подключение фильтров аутентификации.
@@ -36,13 +36,13 @@ public class Dispatcher {
 
         // Маршруты для пользователей (роль USER)
         HttpContext genCtx = server.createContext("/otp/generate", userController::generateOtp);
-        genCtx.getFilters().add(new otp.api.AuthFilter(UserRole.USER));
+        genCtx.getFilters().add(new api.AuthFilter(UserRole.USER));
         HttpContext valCtx = server.createContext("/otp/validate", userController::validateOtp);
-        valCtx.getFilters().add(new otp.api.AuthFilter(UserRole.USER));
+        valCtx.getFilters().add(new api.AuthFilter(UserRole.USER));
 
         // Маршруты для администратора (роль ADMIN)
         HttpContext configCtx = server.createContext("/admin/config", adminController::updateOtpConfig);
-        configCtx.getFilters().add(new otp.api.AuthFilter(UserRole.ADMIN));
+        configCtx.getFilters().add(new api.AuthFilter(UserRole.ADMIN));
         HttpContext usersCtx = server.createContext("/admin/users", exchange -> {
             String method = exchange.getRequestMethod();
             if ("GET".equalsIgnoreCase(method)) {
@@ -53,6 +53,6 @@ public class Dispatcher {
                 exchange.sendResponseHeaders(405, -1);
             }
         });
-        usersCtx.getFilters().add(new otp.api.AuthFilter(UserRole.ADMIN));
+        usersCtx.getFilters().add(new api.AuthFilter(UserRole.ADMIN));
     }
 }
