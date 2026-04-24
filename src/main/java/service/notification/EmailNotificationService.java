@@ -13,6 +13,7 @@ import java.util.Properties;
  * Реализация NotificationService для отправки OTP-кодов по Email.
  * Конфигурация берётся из файла email.properties в resources.
  */
+
 public class EmailNotificationService implements NotificationService {
     private static final Logger logger = LoggerFactory.getLogger(EmailNotificationService.class);
 
@@ -22,6 +23,7 @@ public class EmailNotificationService implements NotificationService {
     /**
      * Конструктор загружает настройки почты и инициирует JavaMail Session.
      */
+
     public EmailNotificationService() {
         Properties props = loadConfig();
         this.fromAddress = props.getProperty("email.from");
@@ -41,6 +43,7 @@ public class EmailNotificationService implements NotificationService {
      *
      * @return Properties с настройками SMTP.
      */
+
     private Properties loadConfig() {
         try (InputStream is = getClass().getClassLoader().getResourceAsStream("email.properties")) {
             if (is == null) {
@@ -61,6 +64,7 @@ public class EmailNotificationService implements NotificationService {
      * @param recipientEmail email-адрес получателя
      * @param code           OTP-код для отправки
      */
+
     @Override
     public void sendCode(String recipientEmail, String code) {
         try {
@@ -78,4 +82,3 @@ public class EmailNotificationService implements NotificationService {
         }
     }
 }
-

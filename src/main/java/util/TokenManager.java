@@ -13,6 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Утиль для генерации, хранения и валидации токенов авторизации.
  */
+
 public final class TokenManager {
     private static final Logger logger = LoggerFactory.getLogger(TokenManager.class);
 
@@ -29,6 +30,7 @@ public final class TokenManager {
      * @param user объект пользователя
      * @return строковое представление токена
      */
+
     public static String generateToken(User user) {
         String token = UUID.randomUUID().toString();
         Instant expiry = Instant.now().plus(TTL_MINUTES, ChronoUnit.MINUTES);
@@ -42,6 +44,7 @@ public final class TokenManager {
      * @param token строка токена
      * @return true, если токен валиден
      */
+
     public static boolean validate(String token) {
         TokenInfo info = tokens.get(token);
         if (info == null) {
@@ -61,6 +64,7 @@ public final class TokenManager {
      * @param token валидный токен
      * @return объект User или null, если токен некорректен/просрочен
      */
+
     public static User getUser(String token) {
         if (!validate(token)) {
             return null;
@@ -72,6 +76,7 @@ public final class TokenManager {
      * Отозвать (удалить) токен досрочно.
      * @param token строка токена
      */
+
     public static void revoke(String token) {
         if (tokens.remove(token) != null) {
             logger.info("Token {} revoked", token);

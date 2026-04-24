@@ -22,6 +22,7 @@ public class UserService {
      * Регистрирует нового пользователя.
      * @throws IllegalArgumentException если логин уже занят или если пытаются создать второго администратора.
      */
+
     public void register(String username, String password, UserRole role) {
         if (userDao.findByUsername(username) != null) {
             logger.warn("Attempt to register with existing username: {}", username);
@@ -42,6 +43,7 @@ public class UserService {
      * Проверяет, существует ли уже администратор.
      * @return true, если администратор существует, иначе false
      */
+
     public boolean adminExists() {
         List<User> users = userDao.findAllUsersWithoutAdmins();  // Получаем всех пользователей без администраторов
         return users.isEmpty();  // Если список пуст, значит администратор не существует
@@ -51,6 +53,7 @@ public class UserService {
      * Аутентифицирует пользователя и возвращает токен.
      * @throws IllegalArgumentException если пользователь не найден или пароль неверен.
      */
+
     public String login(String username, String password) {
         User user = userDao.findByUsername(username);
         if (user == null) {

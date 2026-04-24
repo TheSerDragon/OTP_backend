@@ -40,6 +40,7 @@ public class OtpService {
     /**
      * Генерирует новый OTP-код, сохраняет его в БД и возвращает строку.
      */
+
     public String generateOtp(Long userId, String operationId) {
         OtpConfig config = otpConfigDao.getConfig();
         int length = config.getLength();
@@ -68,6 +69,7 @@ public class OtpService {
     /**
      * Возвращает текущую конфигурацию длины и TTL для кодов.
      */
+
     public OtpConfig getConfig() {
         return otpConfigDao.getConfig();
     }
@@ -75,6 +77,7 @@ public class OtpService {
     /**
      * Сгенерировать и отправить код указанным каналом.
      */
+
     public void sendOtpToUser(Long userId, String operationId, NotificationChannel channel) {
         String code = generateOtp(userId, operationId);
         User user = userDao.findById(userId);
@@ -93,6 +96,7 @@ public class OtpService {
     /**
      * Проверяет введённый код: активность и срок жизни, и переключает статус на USED.
      */
+
     public boolean validateOtp(String inputCode) {
         OtpCode otp = otpCodeDao.findByCode(inputCode);
         if (otp == null) {
@@ -122,6 +126,7 @@ public class OtpService {
     /**
      * Меняет статус всех просроченных кодов на EXPIRED.
      */
+
     public void markExpiredOtps() {
         OtpConfig config = otpConfigDao.getConfig();
         Duration ttl = Duration.ofSeconds(config.getTtlSeconds());

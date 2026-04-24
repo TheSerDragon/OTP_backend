@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Утиль для хеширования паролей и проверки совпадения raw-пароля с сохранённым хешем.
  */
+
 public final class PasswordEncoder {
     private static final Logger logger = LoggerFactory.getLogger(PasswordEncoder.class);
 
@@ -21,6 +22,7 @@ public final class PasswordEncoder {
      * @param rawPassword исходный пароль
      * @return hex-строка хеша
      */
+
     public static String hash(String rawPassword) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -39,6 +41,7 @@ public final class PasswordEncoder {
      * @param storedHash   сохранённый хеш (hex-строка)
      * @return true, если совпадают
      */
+
     public static boolean matches(String rawPassword, String storedHash) {
         if (storedHash == null || rawPassword == null) {
             return false;

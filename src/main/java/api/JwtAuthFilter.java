@@ -14,6 +14,7 @@ import java.io.IOException;
  * Фильтр для аутентификации с использованием JWT токенов.
  * Проверяет токен в заголовке запроса и разрешает доступ, если токен валиден.
  */
+
 @WebFilter("/api/*")  // Применяется ко всем запросам с префиксом /api
 public class JwtAuthFilter implements Filter {
 

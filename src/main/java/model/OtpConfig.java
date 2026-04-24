@@ -6,6 +6,7 @@ import java.util.Objects;
  * Сущность конфигурации OTP-кодов.
  * Содержит параметры длины кода и времени жизни (TTL) в секундах.
  */
+
 public class OtpConfig {
     private Long id;
     private int length;      // количество символов в коде
@@ -14,6 +15,7 @@ public class OtpConfig {
     /**
      * Пустой конструктор для фреймворков и JDBC.
      */
+
     public OtpConfig() {
     }
 
@@ -24,6 +26,7 @@ public class OtpConfig {
      * @param length     длина OTP-кода
      * @param ttlSeconds время жизни кода в секундах
      */
+
     public OtpConfig(Long id, int length, int ttlSeconds) {
         this.id = id;
         this.length = length;
@@ -33,6 +36,7 @@ public class OtpConfig {
     /**
      * @return уникальный идентификатор конфигурации
      */
+
     public Long getId() {
         return id;
     }
@@ -40,6 +44,7 @@ public class OtpConfig {
     /**
      * @param id задаёт уникальный идентификатор конфигурации
      */
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -47,6 +52,7 @@ public class OtpConfig {
     /**
      * @return длину OTP-кода
      */
+
     public int getLength() {
         return length;
     }
@@ -54,6 +60,7 @@ public class OtpConfig {
     /**
      * @param length задаёт длину OTP-кода
      */
+
     public void setLength(int length) {
         this.length = length;
     }
@@ -61,6 +68,7 @@ public class OtpConfig {
     /**
      * @return время жизни OTP-кода в секундах
      */
+
     public int getTtlSeconds() {
         return ttlSeconds;
     }
@@ -68,6 +76,7 @@ public class OtpConfig {
     /**
      * @param ttlSeconds задаёт время жизни OTP-кода в секундах
      */
+
     public void setTtlSeconds(int ttlSeconds) {
         this.ttlSeconds = ttlSeconds;
     }

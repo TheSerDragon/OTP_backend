@@ -24,6 +24,7 @@ import java.util.List;
  * </ul>
  * </p>
  */
+
 public class AdminController {
     private final AdminService adminService = new AdminService(
             new OtpConfigDaoImpl(),
@@ -47,6 +48,7 @@ public class AdminController {
      * @param exchange HTTP-контекст текущего запроса
      * @throws IOException при ошибках ввода-вывода
      */
+
     public void updateOtpConfig(HttpExchange exchange) throws IOException {
         if (!"PATCH".equalsIgnoreCase(exchange.getRequestMethod())) {
             HttpUtils.sendError(exchange, 405, "Method Not Allowed");
@@ -80,6 +82,7 @@ public class AdminController {
      * @param exchange HTTP-контекст текущего запроса
      * @throws IOException при ошибках ввода-вывода
      */
+
     public void listUsers(HttpExchange exchange) throws IOException {
         if (!"GET".equalsIgnoreCase(exchange.getRequestMethod())) {
             HttpUtils.sendError(exchange, 405, "Method Not Allowed");
@@ -107,6 +110,7 @@ public class AdminController {
      * @param exchange HTTP-контекст текущего запроса
      * @throws IOException при ошибках ввода-вывода
      */
+
     public void deleteUser(HttpExchange exchange) throws IOException {
         if (!"DELETE".equalsIgnoreCase(exchange.getRequestMethod())) {
             HttpUtils.sendError(exchange, 405, "Method Not Allowed");

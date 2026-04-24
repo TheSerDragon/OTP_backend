@@ -16,6 +16,7 @@ import java.util.Properties;
  * Реализация NotificationService для отправки OTP-кодов по SMS
  * через эмулятор SMPP.
  */
+
 public class SmsNotificationService implements NotificationService {
     private static final Logger logger = LoggerFactory.getLogger(SmsNotificationService.class);
 

@@ -12,6 +12,7 @@ import java.sql.*;
  * JDBC-реализация OtpConfigDao.
  * Управляет единственной записью в таблице otp_config.
  */
+
 public class OtpConfigDaoImpl implements OtpConfigDao {
     private static final Logger logger = LoggerFactory.getLogger(OtpConfigDaoImpl.class);
 

@@ -19,6 +19,7 @@ import java.util.Map;
  *   <li>POST /login    — аутентификация и выдача токена (username, password)</li>
  * </ul>
  */
+
 public class AuthController {
     private final UserService userService = new UserService(new UserDaoImpl());
 
@@ -37,6 +38,7 @@ public class AuthController {
      * @param exchange объект HttpExchange для текущего запроса
      * @throws IOException при ошибках чтения/записи
      */
+
     public void handleRegister(HttpExchange exchange) throws IOException {
         if (!"POST".equalsIgnoreCase(exchange.getRequestMethod())) {
             HttpUtils.sendError(exchange, 405, "Method Not Allowed");
@@ -81,6 +83,7 @@ public class AuthController {
      * @param exchange объект HttpExchange для текущего запроса
      * @throws IOException при ошибках чтения/записи
      */
+
     public void handleLogin(HttpExchange exchange) throws IOException {
         if (!"POST".equalsIgnoreCase(exchange.getRequestMethod())) {
             HttpUtils.sendError(exchange, 405, "Method Not Allowed");
@@ -111,6 +114,7 @@ public class AuthController {
     /**
      * DTO для разбора JSON тела запроса регистрации.
      */
+
     private static class RegisterRequest {
         public String username;
         public String password;
@@ -120,6 +124,7 @@ public class AuthController {
     /**
      * DTO для разбора JSON тела запроса логина.
      */
+
     private static class LoginRequest {
         public String username;
         public String password;

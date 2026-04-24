@@ -15,6 +15,7 @@ import java.util.List;
  * JDBC-реализация UserDao.
  * Использует DatabaseManager для получения соединения и SLF4J для логирования.
  */
+
 public class UserDaoImpl implements UserDao {
     private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 
@@ -139,6 +140,7 @@ public class UserDaoImpl implements UserDao {
     /**
      * Вспомогательный метод для маппинга строки ResultSet в объект User.
      */
+
     private User mapRow(ResultSet rs) throws SQLException {
         User user = new User();
         user.setId(rs.getLong("id"));

@@ -12,6 +12,7 @@ import java.time.format.DateTimeFormatter;
  * Реализация NotificationService для сохранения OTP-кодов в файл.
  * Путь к файлу передаётся в параметре recipient при вызове sendCode().
  */
+
 public class FileNotificationService implements NotificationService {
     private static final Logger logger = LoggerFactory.getLogger(FileNotificationService.class);
     // Формат временной метки
@@ -23,6 +24,7 @@ public class FileNotificationService implements NotificationService {
      * @param recipientPath путь к файлу, где нужно сохранить код
      * @param code          OTP-код
      */
+
     @Override
     public void sendCode(String recipientPath, String code) {
         Path path = Paths.get(recipientPath);

@@ -6,6 +6,7 @@ import java.util.Objects;
  * Представляет пользователя сервиса OTP.
  * Пользователь имеет уникальный идентификатор, логин, хеш пароля и роль в системе.
  */
+
 public class User {
     private Long id;
     private String username;
@@ -15,6 +16,7 @@ public class User {
     /**
      * Пустой конструктор для фреймворков и JDBC.
      */
+
     public User() {
     }
 
@@ -26,6 +28,7 @@ public class User {
      * @param passwordHash хеш пароля
      * @param role         роль пользователя (ADMIN или USER)
      */
+
     public User(Long id, String username, String passwordHash, UserRole role) {
         this.id = id;
         this.username = username;
@@ -36,6 +39,7 @@ public class User {
     /**
      * @return уникальный идентификатор пользователя
      */
+
     public Long getId() {
         return id;
     }
@@ -43,6 +47,7 @@ public class User {
     /**
      * @param id устанавливает уникальный идентификатор пользователя
      */
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -50,6 +55,7 @@ public class User {
     /**
      * @return логин пользователя
      */
+
     public String getUsername() {
         return username;
     }
@@ -57,6 +63,7 @@ public class User {
     /**
      * @param username устанавливает логин пользователя
      */
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -64,6 +71,7 @@ public class User {
     /**
      * @return хеш пароля пользователя
      */
+
     public String getPasswordHash() {
         return passwordHash;
     }
@@ -71,6 +79,7 @@ public class User {
     /**
      * @param passwordHash устанавливает хеш пароля пользователя
      */
+
     public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
     }
@@ -78,6 +87,7 @@ public class User {
     /**
      * @return роль пользователя в системе
      */
+
     public UserRole getRole() {
         return role;
     }
@@ -85,6 +95,7 @@ public class User {
     /**
      * @param role устанавливает роль пользователя в системе
      */
+
     public void setRole(UserRole role) {
         this.role = role;
     }

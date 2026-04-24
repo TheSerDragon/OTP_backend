@@ -18,6 +18,7 @@ import java.util.Properties;
  * Реализация NotificationService для отправки OTP-кодов через Telegram Bot API.
  * Конфигурация берётся из файла telegram.properties.
  */
+
 public class TelegramNotificationService implements NotificationService {
     private static final Logger logger = LoggerFactory.getLogger(TelegramNotificationService.class);
 
@@ -50,6 +51,7 @@ public class TelegramNotificationService implements NotificationService {
      * @param recipientChatId chatId получателя (если null или пусто, используется defaultChatId)
      * @param code            само сообщение — OTP-код
      */
+
     @Override
     public void sendCode(String recipientChatId, String code) {
         String chatId = (recipientChatId == null || recipientChatId.isBlank())

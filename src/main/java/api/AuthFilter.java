@@ -24,12 +24,14 @@ import java.io.IOException;
  * </ul>
  * </p>
  */
+
 public class AuthFilter extends Filter {
     private final UserRole requiredRole;
 
     /**
      * @param requiredRole минимальная роль пользователя для доступа к ресурсу
      */
+
     public AuthFilter(UserRole requiredRole) {
         this.requiredRole = requiredRole;
     }

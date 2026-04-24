@@ -5,6 +5,7 @@ package service.notification;
  * Реализации данного интерфейса отвечают за отправку кода
  * через разные каналы (email, SMS, Telegram, файл).
  */
+
 public interface NotificationService {
     /**
      * Отправляет одноразовый код пользователю.
@@ -16,5 +17,6 @@ public interface NotificationService {
      *                  для файла — путь или имя файла.
      * @param code      строковое представление OTP-кода.
      */
+
     void sendCode(String recipient, String code);
 }

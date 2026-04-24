@@ -22,6 +22,7 @@ import java.io.IOException;
  * </ul>
  * </p>
  */
+
 public class UserController {
     private final OtpService otpService = new OtpService(
             new OtpCodeDaoImpl(),
@@ -46,6 +47,7 @@ public class UserController {
      * @param exchange текущий HTTP-контекст
      * @throws IOException при ошибках ввода-вывода
      */
+
     public void generateOtp(HttpExchange exchange) throws IOException {
         if (!"POST".equalsIgnoreCase(exchange.getRequestMethod())) {
             HttpUtils.sendError(exchange, 405, "Method Not Allowed");
@@ -85,6 +87,7 @@ public class UserController {
      * @param exchange текущий HTTP-контекст
      * @throws IOException при ошибках ввода-вывода
      */
+
     public void validateOtp(HttpExchange exchange) throws IOException {
         if (!"POST".equalsIgnoreCase(exchange.getRequestMethod())) {
             HttpUtils.sendError(exchange, 405, "Method Not Allowed");
@@ -114,6 +117,7 @@ public class UserController {
     /**
      * DTO для разбора JSON тела POST /otp/generate.
      */
+
     private static class GenerateRequest {
         public Long userId;
         public String operationId;
@@ -123,6 +127,7 @@ public class UserController {
     /**
      * DTO для разбора JSON тела POST /otp/validate.
      */
+
     private static class ValidateRequest {
         public String code;
     }

@@ -19,6 +19,7 @@ import model.UserRole;
  * </ul>
  * </p>
  */
+
 public class Dispatcher {
     private final api.AuthController authController = new api.AuthController();
     private final UserController userController = new UserController();
@@ -29,6 +30,7 @@ public class Dispatcher {
      *
      * @param server экземпляр HttpServer
      */
+
     public void registerRoutes(HttpServer server) {
         // Публичные маршруты
         server.createContext("/register", authController::handleRegister);

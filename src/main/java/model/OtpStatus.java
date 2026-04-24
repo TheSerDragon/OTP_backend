@@ -6,6 +6,7 @@ package model;
  * USED — код был успешно применён и должен быть помечен как использованный;
  * EXPIRED — код превысил время жизни (TTL) и более недействителен.
  */
+
 public enum OtpStatus {
     ACTIVE,
     USED,

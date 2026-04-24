@@ -7,6 +7,7 @@ import java.util.Objects;
  * Сущность одноразового кода (OTP).
  * Содержит информацию о сгенерированном коде, его статусе и времени создания.
  */
+
 public class OtpCode {
     private Long id;
     private Long userId;
@@ -18,6 +19,7 @@ public class OtpCode {
     /**
      * Пустой конструктор для фреймворков и JDBC.
      */
+
     public OtpCode() {
     }
 
@@ -31,6 +33,7 @@ public class OtpCode {
      * @param status      статус кода
      * @param createdAt   дата и время создания кода
      */
+
     public OtpCode(Long id,
                    Long userId,
                    String operationId,

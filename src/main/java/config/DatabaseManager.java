@@ -12,6 +12,7 @@ import java.util.Properties;
  * Загружает настройки из application.properties и предоставляет методы
  * для получения Connection и закрытия ресурсов.
  */
+
 public class DatabaseManager {
     private static final String PROPS_FILE = "application.properties";
     private static String url;
@@ -42,6 +43,7 @@ public class DatabaseManager {
      * @return Connection
      * @throws SQLException если не удалось установить соединение
      */
+
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }
@@ -51,6 +53,7 @@ public class DatabaseManager {
      * Игнорирует null и подавляет SQLException внутри.
      * @param resources список AutoCloseable ресурсов
      */
+
     public static void close(AutoCloseable... resources) {
         for (AutoCloseable r : resources) {
             if (r != null) {

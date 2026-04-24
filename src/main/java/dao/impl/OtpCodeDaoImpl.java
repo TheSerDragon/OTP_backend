@@ -17,6 +17,7 @@ import java.util.List;
  * JDBC-реализация OtpCodeDao.
  * Управляет записями OTP-кодов в таблице otp_codes.
  */
+
 public class OtpCodeDaoImpl implements OtpCodeDao {
     private static final Logger logger = LoggerFactory.getLogger(OtpCodeDaoImpl.class);
 
@@ -147,6 +148,7 @@ public class OtpCodeDaoImpl implements OtpCodeDao {
     /**
      * Преобразует текущую строку ResultSet в объект OtpCode.
      */
+
     private OtpCode mapRow(ResultSet rs) throws SQLException {
         OtpCode code = new OtpCode();
         code.setId(rs.getLong("id"));

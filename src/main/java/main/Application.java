@@ -12,6 +12,7 @@ import java.util.Properties;
  * Точка входа приложения. Поднимает HTTP-сервер на порту из application.properties
  * и регистрирует все маршруты через Dispatcher.
  */
+
 public class Application {
     public static void main(String[] args) {
         try {

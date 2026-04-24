@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Планировщик, который по расписанию помечает просроченные OTP-коды как EXPIRED.
  */
+
 public class OtpExpirationScheduler {
     private static final Logger logger = LoggerFactory.getLogger(OtpExpirationScheduler.class);
 
@@ -28,6 +29,7 @@ public class OtpExpirationScheduler {
      * Запускает планировщик.
      * По расписанию будет вызываться метод run().
      */
+
     public void start() {
         logger.info("Starting OTP-expiration scheduler, interval={} min", intervalMinutes);
         scheduler.scheduleAtFixedRate(
@@ -41,6 +43,7 @@ public class OtpExpirationScheduler {
     /**
      * Однократный прогон: помечает все просроченные OTP как EXPIRED.
      */
+
     public void run() {
         try {
             otpService.markExpiredOtps();

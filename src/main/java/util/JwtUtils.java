@@ -9,6 +9,7 @@ import java.util.Date;
  * Класс для работы с JWT токенами.
  * Предназначен для генерации и валидации токенов.
  */
+
 public class JwtUtils {
 
     // Секретный ключ для подписи токенов
@@ -21,6 +22,7 @@ public class JwtUtils {
      * @param username Имя пользователя
      * @return Токен
      */
+
     public static String generateToken(String username) {
         return JWT.create()
                 .withSubject(username)
@@ -36,6 +38,7 @@ public class JwtUtils {
      * @param token Токен
      * @return true, если токен валиден, иначе false
      */
+
     public static boolean validateToken(String token) {
         try {
             JWT.require(Algorithm.HMAC256(SECRET_KEY))
@@ -54,6 +57,7 @@ public class JwtUtils {
      * @param token Токен
      * @return Имя пользователя
      */
+
     public static String extractUsername(String token) {
         DecodedJWT decodedJWT = JWT.require(Algorithm.HMAC256(SECRET_KEY))
                 .build()
